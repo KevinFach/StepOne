@@ -24,6 +24,14 @@ class SneakerVariant extends Model
     }
 
     /**
+     * Texto para identificar la variante en el panel: "Nike Cortez - Rosa - 25".
+     */
+    public function getLabelAttribute(): string
+    {
+        return "{$this->sneaker?->name} - {$this->color} - {$this->size}";
+    }
+
+    /**
      * Imagen de la variante; si no tiene, la del sneaker principal.
      */
     public function getImage(): ?string

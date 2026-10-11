@@ -93,5 +93,17 @@ class DatabaseSeeder extends Seeder
             'CURP' => 'XEXX010101HNEXXXA4',
             'password' => 'password',
         ]);
+
+        // Acceso al panel /admin
+        Costumer::create([
+            'first_name' => 'Admin',
+            'last_name' => 'StepOne',
+            'email' => 'admin@stepone.test',
+            'phone' => '5500000001',
+            'rfc' => 'XAXX010101001',
+            'CURP' => 'XEXX010101HNEXXXA5',
+            'password' => 'password',
+            'is_admin' => true,
+        ]);
     }
 }

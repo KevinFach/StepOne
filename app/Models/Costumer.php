@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Costumer extends Authenticatable
+class Costumer extends Authenticatable implements FilamentUser, HasName
 {
     use Notifiable;
 
@@ -35,6 +38,21 @@ class Costumer extends Authenticatable
     public function getIsStaffAttribute(): bool
     {
         return $this->is_admin;
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->is_admin && $this->is_active;
+    }
+
+    public function getFilamentName(): string
+    {
+        return trim("{$this->first_name} {$this->last_name}");
+    }
+
+    public function getFullNameAttribute(): string
+    {
+        return $this->getFilamentName();
     }
 
     public function scopeClients(Builder $query): void
