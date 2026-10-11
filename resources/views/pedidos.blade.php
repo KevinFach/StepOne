@@ -2,7 +2,7 @@
 
 
 @section('extra_css')
-<link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
+<link rel="stylesheet" href="{{ asset('css/pedidos.css') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=BBH+Sans+Hegarty&display=swap" rel="stylesheet">

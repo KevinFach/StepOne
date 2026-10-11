@@ -737,3 +737,169 @@ div:where(.swal2-container) .swal2-confirm {
     text-transform: uppercase;
     box-shadow: none !important; /* Quita el brillo por defecto */
 }
+
+/* ================================================================== */
+/*                     AJUSTES RESPONSIVOS                            */
+/* ================================================================== */
+
+/* --- Listado: rejilla fluida (3 columnas en escritorio, menos en pantallas chicas) --- */
+.contenedor__productos {
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    margin-left: 0;
+}
+
+.contenedor__sneaker {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 15.5rem;
+    justify-self: center;
+}
+
+.sneaker__imagen {
+    display: block;
+}
+
+.sneaker__imagen img {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 210px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+/* Botón para mostrar los filtros: oculto en escritorio */
+.filtros__toggle {
+    display: none;
+}
+
+/* --- Detalle: sin anchos ni márgenes fijos --- */
+.contenedor__detalle {
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 4rem) 3rem;
+    align-items: start;
+}
+
+.imagen {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 34rem;
+    height: auto;
+    aspect-ratio: 1;
+    margin: clamp(2rem, 8vw, 8rem) 0 0;
+}
+
+.informacion {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 29rem;
+    margin: 0 0 0 auto;
+}
+
+/* Tablet y celular */
+@media (max-width: 900px) {
+    .layout-productos {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .filtros__toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: none;
+        border-radius: 5rem;
+        background-color: var(--blanco);
+        color: var(--azul02);
+        font-family: var(--fuenteTexto);
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .filtros__panel {
+        display: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .filtros__panel.abierto {
+        display: block;
+    }
+
+    .contenedor__productos {
+        grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+        gap: 1rem;
+    }
+
+    .contenedor__sneaker {
+        margin: 0;
+        max-width: none;
+    }
+
+    /* Detalle en una columna: imagen arriba, información abajo */
+    .contenedor__detalle {
+        grid-template-columns: 1fr;
+        padding: 1rem 1rem 2rem;
+    }
+
+    .imagen {
+        max-width: 26rem;
+        margin: 0 auto;
+    }
+
+    .informacion {
+        max-width: 34rem;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Celular */
+@media (max-width: 480px) {
+    .contenedor__productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    .contenedor__sneaker {
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    .sneaker__imagen img {
+        padding: 8px;
+    }
+
+    .sneaker__informacion .nombre {
+        font-size: 0.85rem;
+    }
+
+    .sneaker__informacion .precio {
+        font-size: 1.3rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .datos__titulo {
+        font-size: 1.9rem;
+    }
+
+    .datos__precio {
+        font-size: 2.6rem;
+        margin-top: -0.8rem;
+    }
+
+    .informacion__numeros {
+        gap: 0.6rem;
+    }
+
+    .numero__item {
+        padding: 0.8rem 0.5rem;
+    }
+}

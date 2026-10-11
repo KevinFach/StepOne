@@ -37,23 +37,26 @@ main {
     flex-grow: 1; 
 }
 
+/* ================================================= */
+/* HEADER: nav (izq) | logo (centro) | opciones (der) */
+/* Mismo acomodo para invitado y logueado; el        */
+/* contenido se limita a 1400px en pantallas anchas. */
+/* ================================================= */
 .barra-principal {
-    display: flex;
-    
-    /* Distribuye el espacio: nav (izq), logo (centro), opciones (der) */
-    justify-content: center; 
-    
-    /* Centra los elementos verticalmente (los pone a la misma altura) */
-    align-items: center; 
-
-    padding: 1rem 2rem; /* Espaciado superior/inferior y a los lados */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem max(1.5rem, calc((100% - 1400px) / 2));
 }
 
-/* .logo__contenedor{
-    margin-left: 20rem;
-    margin-right: 20rem;
-} */
+.barra-principal .nav {
+    justify-self: start;
+}
 
+.barra-principal .opciones {
+    justify-self: end;
+}
 
 .header__titulo{
     display: flex;
@@ -65,63 +68,49 @@ main {
     color: var(--blanco);
 }
 
+/* Pantallas chicas: logo arriba; nav e iconos abajo */
+@media (max-width: 768px) {
+    .barra-principal {
+        grid-template-columns: auto auto;
+        grid-template-areas:
+            "logo logo"
+            "nav opciones";
+        justify-content: space-between;
+        row-gap: 0.5rem;
+    }
 
-/* ================================================= */
-/* CASO 1: NO LOGUEADO (Invitado) */
-/* ================================================= */
+    .barra-principal .nav {
+        grid-area: nav;
+    }
 
-/* Márgenes asimétricos (13rem y 7rem) */
-.modo-invitado .logo__contenedor {
-    margin-left: 5rem; 
-    margin-right: 5rem;
+    .barra-principal .logo__contenedor {
+        grid-area: logo;
+    }
+
+    .barra-principal .opciones {
+        grid-area: opciones;
+    }
+
+    .header__titulo {
+        font-size: 2.75rem;
+    }
 }
 
-/* Titulo con separación extra */
-.modo-invitado .header__titulo {
-    margin-left: 6rem;
-    margin-right: 0rem;
-}
+/* Celulares: logo, nav y opciones en filas centradas */
+@media (max-width: 480px) {
+    .barra-principal {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "logo"
+            "nav"
+            "opciones";
+        justify-items: center;
+    }
 
-.modo-invitado .barra-principal {
-    display: flex;
-    
-    /* Distribuye el espacio: nav (izq), logo (centro), opciones (der) */
-    justify-content: space-between; 
-    
-    /* Centra los elementos verticalmente (los pone a la misma altura) */
-    align-items: center; 
-
-    padding: 1rem 2rem; /* Espaciado superior/inferior y a los lados */
-}
-
-
-
-
-/* ================================================= */
-/* CASO 2: SÍ LOGUEADO (Usuario) */
-/* ================================================= */
-
-/* Márgenes simétricos grandes (20rem) */
-.modo-logueado .logo__contenedor {
-    margin-left: 20rem;
-    margin-right: 20rem;
-}
-
-/* Titulo sin márgenes extra (se mantiene el margin: 0 del base) */
-.modo-logueado .header__titulo {
-    margin: 0;
-}
-
-.modo-logueado .barra-principal {
-    display: flex;
-    
-    /* Distribuye el espacio: nav (izq), logo (centro), opciones (der) */
-    justify-content: center; 
-    
-    /* Centra los elementos verticalmente (los pone a la misma altura) */
-    align-items: center; 
-
-    padding: 1rem 2rem; /* Espaciado superior/inferior y a los lados */
+    .barra-principal .nav,
+    .barra-principal .opciones {
+        justify-self: center;
+    }
 }
 
 .nav__opciones {
@@ -756,4 +745,29 @@ main {
     border-color: var(--azul01);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(64, 122, 208, 0.3);
+}
+
+/* ================================================================== */
+/*        DESPLEGABLES DEL HEADER EN PANTALLAS CHICAS                 */
+/* ================================================================== */
+/* En celular los iconos quedan al centro y el buscador (350px) o el
+   menú de perfil se salían de la pantalla: se muestran como una barra
+   fija arriba, a lo ancho. */
+@media (max-width: 768px) {
+    .buscador,
+    .menu-perfil {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        min-width: 0;
+    }
+
+    .buscador {
+        padding: 0.75rem;
+    }
+
+    .buscador__input {
+        box-sizing: border-box;
+    }
 }

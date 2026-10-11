@@ -15,7 +15,13 @@
 
 <div class="layout-productos">
 
-    <aside class="filtros__panel">
+    @php($filtrosActivos = count($marcas_seleccionadas) + count($tipos_seleccionados) + count($tallas_seleccionadas) + count($colores_seleccionados) + (request()->filled('precio_min') || request()->filled('precio_max') ? 1 : 0))
+    {{-- Solo visible en pantallas chicas: muestra/oculta el panel de filtros --}}
+    <button type="button" class="filtros__toggle" id="btnFiltros" aria-expanded="false" aria-controls="panelFiltros">
+        Filtros @if($filtrosActivos) ({{ $filtrosActivos }}) @endif
+    </button>
+
+    <aside class="filtros__panel" id="panelFiltros">
         <form id="formFiltros" method="GET" action="{{ route('productos') }}">
 
             @if(request('genero'))

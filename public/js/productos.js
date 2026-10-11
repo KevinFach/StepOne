@@ -11,4 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 seccion.classList.toggle('cerrado');
             });
         });
+
+        // Botón "Filtros" (solo visible en pantallas chicas): abre/cierra el panel
+        const btnFiltros = document.getElementById('btnFiltros');
+        const panelFiltros = document.getElementById('panelFiltros');
+
+        if (btnFiltros && panelFiltros) {
+            btnFiltros.addEventListener('click', function() {
+                const abierto = panelFiltros.classList.toggle('abierto');
+                btnFiltros.setAttribute('aria-expanded', abierto);
+            });
+        }
     });

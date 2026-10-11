@@ -13,8 +13,26 @@
     --fuenteTexto02: "Kanit", sans-serif;
 }
 
+/* -------------------------------------------- */
+/* --- ESTRUCTURA: la landing llena el <main> --- */
+/* -------------------------------------------- */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.landing {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* La imagen rotada no genera scroll horizontal */
+}
+
+/* Escenario del hero: texto e imagen se posicionan respecto a este bloque, no a la ventana */
 .contenedor__principal {
-    padding-bottom: 250px;
+    position: relative;
+    flex: 1;
+    min-height: clamp(14rem, min(40vw, 50vh), 30rem);
 }
 
 /* -------------------------------------------- */
@@ -25,12 +43,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Centrar el texto */
-    font-size: 230px;
-    color: var(--blanco); 
+    font-size: clamp(3rem, min(17vw, 30vh), 16rem); /* Escala con el tamaño de la ventana */
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--blanco);
     margin: 0;
-    
+
     /* Z-INDEX BAJO: Esto lo empuja hacia atrás */
-    z-index: 0; 
+    z-index: 0;
 
     font-weight: 900;
     font-family: var(--fuente__fondo);
@@ -39,41 +59,43 @@
 /* --- ESTILO DE LA IMAGEN --- */
 .imagen__delante {
     position: absolute;
-    top: 0px; /* Ajusta la posición vertical  */
-    left: 350px; /* Ajusta la posición horizontal */
-    width: 500px; /* Ajusta el tamaño de la imagen */
+    top: 50%;
+    left: 50%;
+    width: clamp(13rem, min(34vw, 60vh), 32rem); /* Escala junto con el texto */
 
-    transform: rotate(-30deg);
-    
+    /* Centrada sobre el texto, un poco a la izquierda y arriba, y rotada */
+    transform: translate(-60%, -58%) rotate(-30deg);
+
     /* Z-INDEX ALTO: Esto la pone encima del texto-fondo */
-    z-index: 1; 
+    z-index: 1;
 }
 
 .informacion__sneaker{
-    margin-top: 6rem;
-    margin-left: 5rem;
-    padding: 0;
+    position: relative;
+    z-index: 2; /* Siempre por encima de la imagen */
+    /* Alineada con el header (contenido limitado a 1400px) */
+    padding: 0 max(1.5rem, calc((100% - 1400px) / 2)) clamp(1.5rem, 4vh, 3rem);
 }
 
 .sneaker__nombre {
     font-family: var(--fuenteTexto02);
     color: var(--blanco);
     font-weight: 300;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 2.6vw, 2.5rem);
     margin: 0;
 }
 
 .sneaker__precio {
     font-family: var(--fuenteTexto02);
     color: var(--blanco);
-    font-size: 4rem;
+    font-size: clamp(2.25rem, 4.2vw, 4rem);
     font-weight: 300;
-    margin: 0;
+    line-height: 1.2;
+    margin: 0 0 1rem;
 }
 
 .btnAnadir{
     margin: 0;
-    margin-bottom: 4rem;
     background-color: var(--desvanecido);
     backdrop-filter: blur(10px);
     width: fit-content;
@@ -85,9 +107,29 @@
     font-family: var(--fuenteTexto);
     text-decoration: none;
     background-color: var(--blanco);
-    padding: 10px 30px; 
+    padding: 10px 30px;
     border-radius: 5rem;
     text-transform: uppercase;
     cursor: pointer;
 
+}
+
+/* -------------------------------------------- */
+/* --- PANTALLAS CHICAS (tablet vertical / celular) --- */
+/* -------------------------------------------- */
+@media (max-width: 768px) {
+    .contenedor__principal {
+        min-height: clamp(14rem, 60vw, 22rem);
+    }
+
+    .imagen__delante {
+        width: clamp(12rem, 52vw, 20rem);
+    }
+
+    .informacion__sneaker {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }

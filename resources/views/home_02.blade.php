@@ -16,7 +16,7 @@
 @section('title', 'Inicio')
 
 @section('content')
-    <section>
+    <section class="landing">
         <div class="contenedor__principal">
             <h1 class="texto__fondo">JORDAN</h1>
             <img src="{{ asset('images/sneaker_home.png') }}" alt="Jordan Imagen" class="imagen__delante">
