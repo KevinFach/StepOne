@@ -79,7 +79,7 @@ class CheckoutController extends Controller
     public function procesarPedido(Request $request): JsonResponse
     {
         // TODO: portar api_procesar_pedido (Order + DetailOrder + preferencia de MercadoPago).
-        // El access token debe ir en .env, nunca en el código.
+        // Usar config('services.mercadopago.access_token') (MERCADOPAGO_ACCESS_TOKEN en .env), nunca el token en el código.
         return $this->pendiente();
     }
 
@@ -92,6 +92,7 @@ class CheckoutController extends Controller
     public function calcularEnvio(Request $request): JsonResponse
     {
         // TODO: portar api_calcular_envio (cotizar_envio_envia_com de stepOne/utils.py)
+        // Usar config('services.envia.api_key') (ENVIA_API_KEY en .env), nunca la key en el código.
         return $this->pendiente();
     }
 
