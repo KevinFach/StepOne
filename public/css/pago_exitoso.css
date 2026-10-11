@@ -1,0 +1,130 @@
+:root {
+            --blanco: #ffffff;
+            --negro: #000000;
+            --azul01: #013D7D;
+            --azul02: #407AD0;
+            --desvanecido: rgba(255, 255, 255, 0.3);
+            --fuenteLogo: 'Praise', cursive;
+            --fuenteTexto: 'Bricolage Grotesque', sans-serif;
+        }
+
+
+/* --- ESTILOS PAGO EXITOSO --- */
+
+/* Contenedor principal para centrar todo en la pantalla */
+.exito__contenedor {
+    min-height: 80vh; /* Ocupa casi toda la altura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    /* El fondo ya lo tienes en el body, así que esto flota encima */
+}
+
+/* Tarjeta blanca central (Estilo similar a .checkout__resumen) */
+.exito__card {
+    background-color: var(--blanco);
+    border-radius: 2rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: aparecer 0.6s ease-out forwards;
+}
+
+/* Tipografía del título */
+.exito__titulo {
+    font-family: var(--fuenteTexto); /* Bricolage Grotesque */
+    color: var(--azul01);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* Texto del cuerpo */
+.exito__texto {
+    font-family: var(--fuenteTexto);
+    color: var(--negro);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.orden__id {
+    font-weight: 800;
+    color: var(--azul02);
+}
+
+.exito__subtexto {
+    font-family: var(--fuenteTexto);
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Botón (Basado en tu .boton__realizar pero invertido para fondo blanco) */
+.boton__volver {
+    display: inline-block;
+    background-color: var(--azul02);
+    color: var(--blanco);
+    border: none;
+    border-radius: 3rem;
+    padding: 1rem 2.5rem;
+    font-family: var(--fuenteTexto);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none; /* Quitar subrayado de link */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(64, 122, 208, 0.3);
+}
+
+.boton__volver:hover {
+    background-color: var(--azul01);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(1, 61, 125, 0.4);
+}
+
+/* --- ANIMACIÓN DEL ICONO CHECK --- */
+.icono__exito {
+    width: 80px;
+    height: 80px;
+    background-color: #d1fae5; /* Verde muy suave */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+}
+
+.check-svg {
+    width: 40px;
+    height: 40px;
+    fill: none;
+    stroke: #10b981; /* Verde éxito */
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: dibujarCheck 0.5s ease 0.4s forwards;
+}
+
+/* Keyframes para animaciones de entrada */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes dibujarCheck {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

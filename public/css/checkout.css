@@ -1,0 +1,504 @@
+:root {
+            --blanco: #ffffff;
+            --negro: #000000;
+            --azul01: #013D7D;
+            --azul02: #407AD0;
+            --desvanecido: rgba(255, 255, 255, 0.3);
+            --fuenteLogo: 'Praise', cursive;
+            --fuenteTexto: 'Bricolage Grotesque', sans-serif;
+        }
+
+        /* * {
+            box-sizing: border-box;
+        } */
+
+        body {
+            line-height: 1.5;
+            background-image: radial-gradient(circle, var(--azul02) 0%, var(--azul01) 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: var(--fuenteTexto);
+        }
+
+
+
+        .checkout__contenedor {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 4rem;
+            padding: 2rem;
+        }
+
+        .checkout__formulario {
+            background-color: var(--azul02);
+            border-radius: 2rem;
+            padding: 2rem;
+            color: var(--blanco);
+        }
+
+        .seccion__titulo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+        }
+
+        .direccion__guardada {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: start;
+            gap: 0.8rem;
+        }
+
+        .direccion__icono {
+            width: 20px;
+            height: 20px;
+        }
+
+        .direccion__texto {
+            flex: 1;
+        }
+
+        .direccion__nombre {
+            font-weight: 700;
+            color: var(--blanco);
+            margin-bottom: 0px;
+        }
+
+        .direccion__detalles {
+            color: rgba(255, 255, 255, 0.7); /* Blanco un poco transparente */
+            font-size: 0.9rem;
+        }
+
+        /* .direccion__nombre {
+            font-weight: 600;
+            margin: 0 0 0.3rem 0;
+        }
+
+        .direccion__detalles {
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+        } */
+
+        .boton__agregar {
+            background-color: transparent;
+            color: var(--blanco);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 1rem;
+            padding: 0.8rem;
+            width: 100%;
+            cursor: pointer;
+            font-family: var(--fuenteTexto);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .boton__agregar:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .pago__opciones {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pago__opcion {
+            flex: 1;
+            padding: 0.8rem;
+            border-radius: 1rem;
+            border: none;
+            cursor: pointer;
+            font-family: var(--fuenteTexto);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pago__opcion.activo {
+            background-color: var(--blanco);
+            color: var(--negro);
+        }
+
+        .pago__opcion:not(.activo) {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--blanco);
+        }
+
+        .formulario__grupo {
+            margin-bottom: 1rem;
+        }
+
+        .formulario__label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .formulario__input {
+            width: 12rem;
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-family: var(--fuenteTexto);
+            font-size: 1rem;
+        }
+
+        .formulario__input__largo{
+            width: 27.5rem;
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-family: var(--fuenteTexto);
+            font-size: 1rem;
+        }
+
+        .formulario__row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .tarjeta__icono {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .texto__pequeno {
+            font-size: 0.85rem;
+            margin: 1rem 0;
+        }
+
+        .boton__realizar {
+            background-color: var(--blanco);
+            color: var(--azul02);
+            border: none;
+            border-radius: 3rem;
+            padding: 1rem;
+            width: 100%;
+            cursor: pointer;
+            font-family: var(--fuenteTexto);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .boton__realizar:hover {
+            background-color: #f0f0f0;
+        }
+
+        .checkout__resumen {
+            background-color: var(--blanco);
+            border-radius: 2rem;
+            padding: 2rem;
+            height: fit-content;
+        }
+
+        .resumen__titulo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+            color: var(--negro);
+        }
+
+        .resumen__fila {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .resumen__fila.total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding-top: 1rem;
+            border-top: 2px solid #e0e0e0;
+            margin-top: 1rem;
+        }
+
+        .resumen__producto {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 1.5rem;
+        }
+
+        .resumen__imagen {
+            width: 80px;
+            height: 80px;
+            background-color: #f5f5f5;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .resumen__imagen img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .resumen__info {
+            flex: 1;
+        }
+
+        .resumen__nombre {
+            font-weight: 600;
+            margin: 0 0 0.3rem 0;
+        }
+
+        .resumen__detalles {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+/* --- ESTILOS DEL MODAL --- */
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro transparente */
+    backdrop-filter: blur(5px); /* Efecto borroso */
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal__overlay.activo {
+    display: flex;
+    opacity: 1;
+}
+
+.modal__contenido {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal__overlay.activo .modal__contenido {
+    transform: translateY(0);
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal__header h3 {
+    font-family: var(--fuenteTexto); /* Bricolage */
+    font-size: 1.5rem;
+    color: var(--azul01);
+    margin: 0;
+}
+
+.modal__cerrar {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Formulario dentro del modal */
+.modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form__fila {
+    display: flex;
+    gap: 1rem;
+}
+
+.form__grupo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__grupo.corto {
+    flex: 0 0 30%; /* El número y CP ocupan menos espacio */
+}
+
+.form__grupo label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+.form__grupo input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: var(--fuenteTexto02);
+}
+
+.modal__botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn__cancelar {
+    padding: 0.8rem 1.5rem;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn__guardar {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--azul02);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn__guardar:hover {
+    background-color: var(--azul01);
+}
+
+
+.grid__direcciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+    max-height: 300px; /* Si tiene muchas, hace scroll */
+    overflow-y: auto;
+}
+
+.direccion__card {
+    display: flex;
+    align-items: center;
+    /* Fondo transparente con un poco de blanco (10%) */
+    background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); /* Efecto borroso detrás */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    border-radius: 12px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    color: var(--blanco); /* IMPORTANTE: Texto blanco */
+    border: white;
+
+    transform: scale(1);
+    margin-bottom: 10px;
+}
+
+.direccion__card:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Un poco más claro */
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px); /* Pequeña elevación */
+}
+
+/* ESTILO CUANDO ESTÁ SELECCIONADA */
+.direccion__card.seleccionada {
+    /* Fondo un poco más sólido para destacar */
+    background-color: var(--azul01); 
+    border: 2px solid var(--blanco); /* Borde blanco brillante */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95); /* Se reduce al 95% de su tamaño */
+    margin: 1rem 0;
+    
+    
+}
+
+.icono__check {
+    font-size: 1.5rem;
+    color: var(--azul02);
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.subtitulo__seccion {
+    font-family: var(--fuenteTexto);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* --- AGREGAR AL FINAL DE checkout.css --- */
+
+/* Estilos para el círculo vacío (sin seleccionar) */
+.radio-vacio {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc; /* Gris */
+    border-radius: 100%;
+    background-color: white;
+}
+
+/* Estilos para el círculo lleno (seleccionado) */
+.radio-lleno {
+    width: 22px;
+    height: 22px;
+    background-color: var(--azul02); /* Tu azul */
+    border: 2px solid var(--blanco);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* El punto blanco del centro */
+.radio-lleno::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Efecto hover en la tarjeta */
+.direccion__card:hover {
+    border-color: var(--azul02);
+}
+
+/* Borde azul cuando está seleccionada */
+.direccion__card.seleccionada {
+    border: 2px solid var(--azul02);
+    background-color: rgba(64, 122, 208, 0.05); /* Fondo azul muy tenue */
+}

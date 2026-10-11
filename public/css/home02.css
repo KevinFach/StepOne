@@ -1,0 +1,93 @@
+:root{
+    /* --------------------- */
+    /*        COLORES        */
+    /* --------------------- */
+    --blanco: #ffffff;
+    --desvanecido: rgba(255, 255, 255, 0.3);
+
+    /* ---------------------- */
+    /*      TIPOGRAFÍA        */
+    /* ---------------------- */
+    --fuente__fondo: "Archivo Black", sans-serif;
+    --fuenteTexto: 'Bricolage Grotesque', sans-serif;
+    --fuenteTexto02: "Kanit", sans-serif;
+}
+
+.contenedor__principal {
+    padding-bottom: 250px;
+}
+
+/* -------------------------------------------- */
+/* --- ESTILO DEL TEXTO (El que va detrás) --- */
+/* -------------------------------------------- */
+.texto__fondo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el texto */
+    font-size: 230px;
+    color: var(--blanco); 
+    margin: 0;
+    
+    /* Z-INDEX BAJO: Esto lo empuja hacia atrás */
+    z-index: 0; 
+
+    font-weight: 900;
+    font-family: var(--fuente__fondo);
+}
+
+/* --- ESTILO DE LA IMAGEN --- */
+.imagen__delante {
+    position: absolute;
+    top: 0px; /* Ajusta la posición vertical  */
+    left: 350px; /* Ajusta la posición horizontal */
+    width: 500px; /* Ajusta el tamaño de la imagen */
+
+    transform: rotate(-30deg);
+    
+    /* Z-INDEX ALTO: Esto la pone encima del texto-fondo */
+    z-index: 1; 
+}
+
+.informacion__sneaker{
+    margin-top: 6rem;
+    margin-left: 5rem;
+    padding: 0;
+}
+
+.sneaker__nombre {
+    font-family: var(--fuenteTexto02);
+    color: var(--blanco);
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.sneaker__precio {
+    font-family: var(--fuenteTexto02);
+    color: var(--blanco);
+    font-size: 4rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.btnAnadir{
+    margin: 0;
+    margin-bottom: 4rem;
+    background-color: var(--desvanecido);
+    backdrop-filter: blur(10px);
+    width: fit-content;
+    padding: 0.4rem;
+    border-radius: 5rem
+}
+
+.btnAnadir__texto {
+    font-family: var(--fuenteTexto);
+    text-decoration: none;
+    background-color: var(--blanco);
+    padding: 10px 30px; 
+    border-radius: 5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+
+}

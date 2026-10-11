@@ -1,0 +1,406 @@
+:root {
+            --blanco: #ffffff;
+            --negro: #000000;
+            --azul01: #013D7D;
+            --azul02: #407AD0;
+            --desvanecido: rgba(255, 255, 255, 0.3);
+            --fuenteLogo: 'Praise', cursive;
+            --fuenteTexto: 'Bricolage Grotesque', sans-serif;
+            --fuenteTexto02: "Kanit", sans-serif;
+        }
+
+        body {
+            line-height: 1.5;
+            background-image: radial-gradient(circle, var(--azul02) 0%, var(--azul01) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            font-family: var(--fuenteTexto);
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        .barra-principal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo__contenedor {
+            margin-left: 20rem;
+            margin-right: 20rem;
+        }
+
+        .header__titulo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            font-family: var(--fuenteLogo);
+            margin: 0;
+            color: var(--blanco);
+        }
+
+        .nav__opciones {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            padding: 10px;
+            background-color: var(--desvanecido);
+            backdrop-filter: blur(10px);
+            border-radius: 5rem;
+            width: fit-content;
+        }
+
+        .nav__opcion {
+            font-family: var(--fuenteTexto);
+            color: var(--blanco);
+            text-decoration: none;
+        }
+
+        .--seleccionada {
+            background-color: var(--blanco);
+            padding: 0px 3px;
+            border-radius: 9px;
+            color: var(--negro);
+        }
+
+        .opciones {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 0;
+            margin-left: 1rem;
+        }
+
+        .opciones__icono {
+            width: 1rem;
+            height: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--desvanecido);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Contenedor de pedidos */
+        .pedidos__contenedor {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 3rem;
+        }
+
+        .pedidos__header {
+            margin-bottom: 2rem;
+        }
+
+        .pedidos__titulo {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--blanco);
+            margin: 0 0 0.5rem 0;
+            font-family: var(--fuenteTexto02);
+        }
+
+        .pedidos__subtitulo {
+            font-size: 1.2rem;
+            color: var(--blanco);
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* Filtros de estado */
+        .pedidos__filtros {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filtro__boton {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--desvanecido);
+            backdrop-filter: blur(10px);
+            color: var(--blanco);
+            border: 2px solid transparent;
+            border-radius: 3rem;
+            font-family: var(--fuenteTexto);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filtro__boton:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .filtro__boton.activo {
+            background-color: var(--blanco);
+            color: var(--azul02);
+            border-color: var(--blanco);
+        }
+
+        /* Tarjeta de pedido */
+        .pedido__card {
+            background-color: var(--blanco);
+            border-radius: 2rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .pedido__card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .pedido__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .pedido__info {
+            flex: 1;
+        }
+
+        .pedido__numero {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0 0 0.3rem 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pedido__fecha {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--azul01);
+            margin: 0;
+        }
+
+        .pedido__estado {
+            padding: 0.6rem 1.5rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .estado--entregado {
+            background-color: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .estado--en-camino {
+            background-color: #FFF3E0;
+            color: #F57C00;
+        }
+
+        .estado--procesando {
+            background-color: #E3F2FD;
+            color: #1976D2;
+        }
+
+        .estado--cancelado {
+            background-color: #FFEBEE;
+            color: #C62828;
+        }
+
+        /* Productos del pedido */
+        .pedido__productos {
+            margin-bottom: 1.5rem;
+        }
+
+        .producto__item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .producto__imagen {
+            width: 80px;
+            height: 80px;
+            background-color: var(--blanco);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .producto__imagen img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .producto__detalles {
+            flex: 1;
+        }
+
+        .producto__nombre {
+            font-weight: 700;
+            color: var(--azul01);
+            margin: 0 0 0.3rem 0;
+            font-size: 1.1rem;
+        }
+
+        .producto__info {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .producto__precio {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--azul02);
+            font-family: var(--fuenteTexto02);
+            text-align: right;
+        }
+
+        /* Footer del pedido */
+        .pedido__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .pedido__total {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .total__label {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .total__cantidad {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--azul01);
+            margin: 0;
+            font-family: var(--fuenteTexto02);
+        }
+
+        .pedido__acciones {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .boton__accion {
+            padding: 0.8rem 1.5rem;
+            border-radius: 3rem;
+            font-family: var(--fuenteTexto);
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .boton__ver {
+            background-color: var(--azul02);
+            color: var(--blanco);
+        }
+
+        .boton__ver:hover {
+            background-color: var(--azul01);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(1, 61, 125, 0.3);
+        }
+
+        .boton__rastrear {
+            background-color: transparent;
+            color: var(--azul02);
+            border: 2px solid var(--azul02);
+        }
+
+        .boton__rastrear:hover {
+            background-color: var(--azul02);
+            color: var(--blanco);
+        }
+
+        .footer {
+            width: 100%;
+            background-color: var(--azul01);
+            text-align: center;
+            padding: 1rem 0;
+            color: var(--blanco);
+            font-family: var(--fuenteTexto);
+            margin-top: 3rem;
+        }
+
+        /* Estado vacío */
+        .pedidos__vacio {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--blanco);
+            border-radius: 2rem;
+            margin-top: 2rem;
+        }
+
+        .vacio__icono {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            opacity: 0.3;
+        }
+
+        .vacio__titulo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--azul01);
+            margin: 0 0 1rem 0;
+        }
+
+        .vacio__texto {
+            font-size: 1.1rem;
+            color: #666;
+            margin: 0 0 2rem 0;
+        }
+
+        .vacio__boton {
+            padding: 1rem 2rem;
+            background-color: var(--azul02);
+            color: var(--blanco);
+            border: none;
+            border-radius: 3rem;
+            font-family: var(--fuenteTexto);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .vacio__boton:hover {
+            background-color: var(--azul01);
+        }
